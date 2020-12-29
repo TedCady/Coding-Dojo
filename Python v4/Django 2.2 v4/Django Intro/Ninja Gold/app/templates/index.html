@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="container-gold">
+            <p id="your-gold">Your Gold:</p>
+            <p id="gold-count">{{request.session.gold}}</p>
+        </div>
+
+        <div class="find-options">
+            <div class="option-box">
+                <h3>Farm</h3>
+                <p>(earns 10-20 gold)</p>
+                <form method="post" action="/process_money">
+                    {% csrf_token %}
+                    <input type="hidden" name="forms" value="farm">
+                    <button type="submit">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="option-box">
+                <h3>Cave</h3>
+                <p>(earns 5-10 gold)</p>
+                <form method="post" action="/process_money">
+                    {% csrf_token %}
+                    <input type="hidden" name="forms" value="cave">
+                    <button type="submit">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="option-box">
+                <h3>House</h3>
+                <p>(earns 2-5 gold)</p>
+                <form method="post" action="/process_money">
+                    {% csrf_token %}
+                    <input type="hidden" name="forms" value="house">
+                    <button type="submit">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="option-box">
+                <h3>Casino</h3>
+                <p>(earns/takes 0-50 gold)</p>
+                <form method="post" action="/process_money">
+                    {% csrf_token %}
+                    <input type="hidden" name="forms" value="casino">
+                    <button type="submit">Find Gold!</button>
+                </form>
+            </div>
+
+            </div>
+            <div class="activities">
+                <h3>Activities:</h3>
+                <p>{{ request.session.result }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

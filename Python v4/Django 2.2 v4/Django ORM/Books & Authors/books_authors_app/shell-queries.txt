@@ -1,0 +1,119 @@
+>>> Book.objects.get(title='C Sharp')
+<Book: Book object (1)>
+>>> Book.objects.create(title='Java')
+<Book: Book object (2)>
+>>> Book.objects.create(title='Python')  
+<Book: Book object (3)>
+>>> Book.objects.create(title='PHP')    
+<Book: Book object (4)>
+>>> Book.objects.create(title='Ruby') 
+<Book: Book object (5)>
+
+>>> Author.objects.create(first_name='Jane',last_name='Austen')
+<Author: Author object (1)>
+>>> Author.objects.create(first_name='Emily',last_name='Dickinson') 
+<Author: Author object (2)>
+>>> Author.objects.create(first_name='Fyodor',last_name='Dostoevsky') 
+<Author: Author object (3)>
+>>> Author.objects.create(first_name='William',last_name='Shakespeare') 
+<Author: Author object (4)>
+>>> Author.objects.create(first_name='Lau',last_name='Tzu')             
+<Author: Author object (5)>
+
+(env) C:\Users\e-mac\OneDrive\Desktop\Django\books_authors_proj>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to author without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 'old author'
+Migrations for 'books_authors_app':
+  books_authors_app\migrations\0005_author_notes.py
+    - Add field notes to author
+
+(env) C:\Users\e-mac\OneDrive\Desktop\Django\books_authors_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authors_app, contenttypes, sessions
+Running migrations:
+  Applying books_authors_app.0005_author_notes... OK
+
+>>> c=Book.objects.get(title='C Sharp')
+>>> c.title='C#'
+>>> c.title
+'C#'
+
+>>> change_first_name=Author.objects.get(id=4)
+>>> change_first_name.first_name='Bill'
+>>> change_first_name.first_name
+'Bill'
+>>> change_first_name.save()
+
+>>> book1=Book.objects.first()
+>>> book2=Book.objects.get(id=2)
+>>> book1.title
+'C#'
+>>> book2.title
+'Java'
+>>> auth=Author.objects.first()
+>>> auth.first_name
+'Jane'
+>>> auth.books.add(book1, book2)
+>>> auth.books.values()
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 53, 8, 329344, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 4, 12, 569043, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}]>
+
+>>> auth=Author.objects.get(id=2)
+>>> auth.first_name
+'Emily'
+>>> book3=Book.objects.get(id=3)
+>>> book3.title
+'Python'
+>>> auth.books.add(book1, book2, book3)
+>>> auth.books.values()
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 53, 8, 329344, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 4, 12, 569043, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}, {'id': 3, 'title': 'Python', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>)}]>
+
+>>> auth=Author.objects.get(id=3) 
+>>> auth.first_name
+'Fyodor'
+>>> book4=Book.objects.get(id=4)
+>>> book4.title
+'PHP'
+>>> auth.books.add(book1,book2,book3,book4)
+>>> auth.books.values()
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 53, 8, 329344, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 4, 12, 569043, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}, {'id': 3, 'title': 'Python', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>)}, {'id': 4, 'title': 'PHP', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>)}]> 
+
+>>> auth=Author.objects.get(id=4) 
+>>> auth.first_name        
+'Bill'
+>>> book5=Book.objects.get(id=5)
+>>> book5.title
+'Ruby'
+>>> auth.books.add(book1,book2,book3,book4,book5)
+>>> auth.books.values()
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 53, 8, 329344, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 4, 12, 569043, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}, {'id': 3, 'title': 'Python', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>)}, {'id': 4, 'title': 'PHP', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>)}, {'id': 5, 'title': 'Ruby', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 56, 4, 203263, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 56, 4, 203263, tzinfo=<UTC>)}]>
+
+>>> all_authors=Book.objects.get(id=3)
+>>> all_authors.authors.values()
+<QuerySet [{'id': 2, 'first_name': 'Emily', 'last_name': 'Dickinson', 'created_at': datetime.datetime(2020, 11, 14, 14, 58, 10, 373017, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 58, 10, 373017, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'Fyodor', 'last_name': 'Dostoevsky', 'created_at': datetime.datetime(2020, 11, 14, 14, 58, 36, 741254, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 58, 36, 741254, tzinfo=<UTC>)}, {'id': 4, 'first_name': 'Bill', 
+'last_name': 'Shakespeare', 'created_at': datetime.datetime(2020, 11, 14, 14, 58, 52, 5142, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 12, 38, 193956, tzinfo=<UTC>)}]>
+
+>>> rBook=Book.objects.get(id=3)
+>>> rAuth=rBook.authors.first()
+>>> rAuth.first_name
+'Emily'
+>>> rBook.authors.remove(rAuth)
+
+>>> addAuth=Author.objects.get(id=5)
+>>> addBook=Book.objects.get(id=2)
+>>> addAuth.books.add(addBook) 
+>>> addAuth.books.values()
+<QuerySet [{'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}]>
+
+>>> find_auth_books=Author.objects.get(id=3)
+>>> find_auth_books.books.values()      
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 53, 8, 329344, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 4, 12, 569043, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 13, 655162, tzinfo=<UTC>)}, {'id': 3, 'title': 'Python', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 55, 56, 650245, tzinfo=<UTC>)}, {'id': 4, 'title': 'PHP', 'desc': '', 'created_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 14, 56, 0, 803232, tzinfo=<UTC>)}]> 
+
+>>> cont_auth=Book.objects.get(id=5)
+<QuerySet [{'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'created_at': datetime.datetime(2020, 11, 14, 14, 58, 52, 5142, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 14, 15, 12, 38, 193956, tzinfo=<UTC>)}]>

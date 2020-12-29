@@ -1,0 +1,66 @@
+>>> Dojo.objects.create(name="Dojo1", city="San Jose", state="CA")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Dojo2", city="JBMDL", state="NJ")    
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Dojo3", city="ISSOKOLD", state="AK") 
+<Dojo: Dojo object (3)>
+
+>>> c=Dojo.objects.get(id=1)
+>>> c.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> c=Dojo.objects.get(id=2)
+>>> c.delete()                  
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> c=Dojo.objects.get(id=3)
+>>> c.delete()                  
+(1, {'dojo_ninjas_app.Dojo': 1})
+
+>>> Dojo.objects.create(name="Dojo4", city="Sim", state="AW")
+<Dojo: Dojo object (4)>
+>>> Dojo.objects.create(name="Dojo5", city="Simm", state="AE") 
+<Dojo: Dojo object (5)>
+>>> Dojo.objects.create(name="Dojo6", city="Simmm", state="YE") 
+<Dojo: Dojo object (6)>
+
+>>> this_dojo = Dojo.objects.get(id=4)
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Ethan",last_name="Mace") 
+<Ninjas: Ninjas object (1)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Elayshia",last_name="Mace") 
+<Ninjas: Ninjas object (2)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Bill",last_name="Mace")     
+<Ninjas: Ninjas object (3)>
+
+>>> this_dojo = Dojo.objects.get(id=5)                                              
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Ethan",last_name="Mace2")   
+<Ninjas: Ninjas object (4)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Elayshia",last_name="Mace2") 
+<Ninjas: Ninjas object (5)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Bill",last_name="Mace2")     
+<Ninjas: Ninjas object (6)>
+
+>>> this_dojo = Dojo.objects.get(id=6)                                               
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Ethan",last_name="Mace3")    
+<Ninjas: Ninjas object (7)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Elayshia",last_name="Mace3") 
+<Ninjas: Ninjas object (8)>
+>>> Ninjas.objects.create(dojo_id=this_dojo,first_name="Bill",last_name="Mace3")     
+<Ninjas: Ninjas object (9)>
+
+>>> this_dojo = Dojo.objects.get(id=4)
+>>> Ninjas.objects.filter(dojo_id=this_dojo).values()
+<QuerySet [{'id': 1, 'dojo_id_id': 4, 'first_name': 'Ethan', 'last_name': 'Mace'}, {'id': 2, 'dojo_id_id': 4, 'first_name': 'Elayshia', 'last_name': 'Mace'}, {'id': 3, 'dojo_id_id': 4, 'first_name': 'Bill', 'last_name': 'Mace'}]>
+
+>>> this_dojo = Dojo.objects.get(id=5) 
+>>> Ninjas.objects.filter(dojo_id=this_dojo).values()
+<QuerySet [{'id': 4, 'dojo_id_id': 5, 'first_name': 'Ethan', 'last_name': 'Mace2'}, {'id': 5, 'dojo_id_id': 5, 'first_name': 'Elayshia', 'last_name': 'Mace2'}, {'id': 6, 'dojo_id_id': 5, 'first_name': 'Bill', 'last_name': 'Mace2'}]>
+
+>>> this_dojo = Dojo.objects.get(id=6)       
+>>> Ninjas.objects.filter(dojo_id=this_dojo).values()
+<QuerySet [{'id': 7, 'dojo_id_id': 6, 'first_name': 'Ethan', 'last_name': 'Mace3'}, {'id': 8, 'dojo_id_id': 6, 'first_name': 'Elayshia', 'last_name': 'Mace3'}, {'id': 9, 'dojo_id_id': 6, 'first_name': 'Bill', 'last_name': 'Mace3'}]>
+
+>>> n=Ninjas.objects.last()
+>>> n.dojo_id.name
+'Dojo6'
+
+>>> Dojo.objects.create(name="New Dojo", city = "Ojod Wen", state="ND", desc="this is a new dojo")
+<Dojo: Dojo object (7)>

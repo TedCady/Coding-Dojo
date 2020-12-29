@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h1>Welcome, {{name}}!</h1>
+            <div class="top-links">
+                <a href="/add">Add Book and Review</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="recent">
+            <h3>Recent Book Reviews:</h3>
+            <div class="reviews">
+                <div>
+                    <a class='dash_book_title' href="/books/{{reviews.r1.book.id}}">{{reviews.r1.book.title}}</a>
+                        <p>
+                            {% for i in 5 %}
+                                {% if i > reviews.r1.rating %}
+                                    <img src="static/images/empty-star" alt="empty-star">
+                                {% else %}
+                                    <img src="static/images/gold-star" alt="gold-star">
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    <p class='dash_book_user_name'><a href="/users/{{reviews.r1.user.id}}">{{reviews.r1.user.name}}</a> says: <em>{{reviews.r1.review}}</em></p>
+                    <p class='dash_book_review_date'><em>Posted on: {{reviews.r1.created_on}}</em></p>
+                </div>
+                <div>
+                    <a class='dash_book_title' href="/books/{{reviews.r2.book.id}}">{{reviews.r2.book.title}}</a>
+                    <p class='dash_book_user_name'><a href="/users/{{reviews.r2.user.id}}">{{reviews.r2.user.name}}</a> says: <em>{{reviews.r2.review}}</em></p>
+                    <p class='dash_book_review_date'><em>Posted on: {{reviews.r2.created_on}}</em></p>
+                </div>
+                <div>
+                    <a class='dash_book_title' href="/books/{{reviews.r3.book.id}}">{{reviews.r3.book.title}}</a>
+                    <p class='dash_book_user_name'><a href="/users/{{reviews.r3.user.id}}">{{reviews.r3.user.name}}</a> says: <em>{{reviews.r3.review}}</em></p>
+                    <p class='dash_book_review_date'><em>Posted on: {{reviews.r3.created_on}}</em></p>
+                </div>
+            </div>
+        </div>
+        <div class="other">
+            <h3>Other Books with Reviews:</h3>
+            <div class="all_reviews">
+                <ul>
+                {% for title in all_reviews.all %}
+                    <li><a href="/users/{{title.user.id}}">{{title.user.name}}</a> reviewed: <a href="/books/{{title.book.id}}">{{title.book.title}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

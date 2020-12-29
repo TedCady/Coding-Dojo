@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h3>Add a New Book Title and a Review:</h3>
+            <div class="top-links">
+                <a href="/dashboard">Home</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="add_review">
+            <form method="POST" action="/add_review">
+                {% csrf_token %}
+                <table class="tbl_add_review">
+                    <tr>
+                        <td>Book Title:</td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Author:</td>
+                    </tr>
+                    <tr>
+                        <td><em>Choose from List</em></td>
+                        <td>
+                            <select name="author">
+                                <option></option>
+                                {% for author in authors %}
+                                    <option>{{author.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><em>Or Add a New Author</em></td>
+                        <td><input type="text" name="add_author"></td>
+                    </tr>
+                    <tr>
+                        <td>Review:</td>
+                        <td><input type="text" name="review"></td>
+                    </tr>
+                    <tr>
+                        <td>Rating:</td>
+                        <td>
+                            <select name="rating">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">Add Book and Review</button>
+            </form>
+        </div>
+</body>
+</html>

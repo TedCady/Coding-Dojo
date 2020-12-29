@@ -1,0 +1,100 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+    .header-row{
+        width: 970px;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: lightgray;
+        padding: 5px 25px 5px 25px;
+    }
+    .content-full{
+        max-width: 970px;
+        height: auto;
+        display: flexbox;
+        background: radial-gradient(white,#6F5964,#1D0D11);
+        padding: 15px 25px 15px 25px;
+    }
+    .top-row{
+        display: inline-flex;
+        justify-content: space-between;
+        align-content: center;
+        max-width: 970px;
+        margin: 0px 0px 10px 0px;
+    }
+    #photo-of-me{
+        margin: 0px 15px 2.5px 0px;
+        border-style: solid; 
+        border-color: lightgray;
+        border-width: 5px;
+        max-width: 375px;
+        min-width: 100px;
+    }
+    .box-headers{
+        min-width: min-content;
+        display: flex;
+        align-content: center;
+        padding: 2.5px 10px 2.5px 10px;
+        background: linear-gradient(rgb(175, 175, 175),rgb(117, 117, 117),rgb(175, 175, 175));
+        color: white;
+        font-weight: bold;
+        font-size: 10pt;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .gen-content{
+        height: 221.5px;
+        padding: 10px 10px 0px 10px ;
+        font-size: 9.5pt;
+        background-color: lightgray;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .bottom-row{
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 970px;
+    }
+    .btm-box{
+        max-width: 313px;
+        margin-right: 15px;
+        background-color: lightgray;
+        align-content: center;
+    }
+    .box-images{
+        width: 313px;
+        object-fit: cover;
+    }
+    .pro-langs{
+        padding: 10px;
+    }
+    .pro-lang-img{
+        width: 45px;
+        height: 45px;  
+    }
+    .clicky-bois{
+        display: inline-table;
+        align-content: center;
+        vertical-align: middle;
+        height: 20px;
+        margin: 0px 90px 0px 90px;
+        padding: 6px 6px 0px 6px;
+        background-color: green;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9.5pt;
+        border-radius: 10px;
+    }
+    .footer-row{
+        width: 970px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+    .c-img{
+        width: 15px;
+        height: 15px;
+    }

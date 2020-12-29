@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h3>Edit Show {{show.id}}</h3>
+            <a class="return" href="/shows">Go Back</a>
+        </div>
+
+        <div class="info">
+            {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form method="POST" action="/shows/{{show.id}}/update">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Title:</td>
+                        <td><input type="text" name="title" placeholder="{{show.title}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Network:</td>
+                        <td><input type="text" name="network" placeholder="{{show.network}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Release Date:</td>
+                        <td><input type="date" name="release_date" placeholder="{{show.release_date}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td><input type="text" name="description" placeholder="{{show.description}}"></td>
+                    </tr>
+                </table>
+                <button type="submit">Update</button>
+            </form>
+            <p><a href="/shows/{{show.id}}">Go to Show</a></p>
+        </div>
+    </div>
+</body>
+</html>

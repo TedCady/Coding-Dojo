@@ -1,0 +1,32 @@
+>>> users.objects.create(first_name="Bob", last_name="Bobberson", email_address="asdf", age=1738)
+>>> users.objects.create(first_name="Bill", last_name="Billerson", email_address="asdfsa", age=18) 
+>>> users.objects.create(first_name="Middle", last_name="Middleson", email_address="ffffffff", age=98) 
+
+>>> users.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Bob', 'last_name': 'Bobberson', 'email_address': 'asdf', 'age': 1738, 'created_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>)}, {'id': 2, 'first_name': 'Bill', 'last_name': 'Billerson', 'email_address': 'asdfsa', 'age': 18, 'created_at': datetime.datetime(2020, 11, 12, 18, 19, 49, 847303, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 19, 49, 848312, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'Middle', 'last_name': 'Middleson', 'email_address': 'ffffffff', 'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>)}]>
+
+>>> users.objects.last().__dict__      
+{'_state': <django.db.models.base.ModelState object at 0x0000021BC692F850>, 'id': 3, 'first_name': 'Middle', 'last_name': 'Middleson', 'email_address': 'ffffffff', 'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>)}
+
+>>> users.objects.first().__dict__      
+{'_state': <django.db.models.base.ModelState object at 0x0000021BC692F730>, 'id': 1, 'first_name': 'Bob', 'last_name': 'Bobberson', 'email_address': 'asdf', 'age': 1738, 'created_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>)}
+
+>>> c = users.objects.get(id=3)
+>>> c.last_name="Pancakes"
+>>> c.save()
+>>> users.objects.get(id=3).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0000021BC692FF40>, 'id': 3, 'first_name': 'Middle', 'last_name': 'Pancakes', 'email_address': 'ffffffff', 
+'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 32, 54, 353509, tzinfo=<UTC>)}
+
+>>> c = users.objects.get(id=2)
+>>> c.delete()
+(1, {'users_app.users': 1})
+>>> users.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Bob', 'last_name': 'Bobberson', 'email_address': 'asdf', 'age': 1738, 'created_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'Middle', 'last_name': 'Pancakes', 'email_address': 'ffffffff', 'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 32, 54, 353509, tzinfo=<UTC>)}]>
+
+>>> users.objects.all().order_by('first_name').values()
+<QuerySet [{'id': 1, 'first_name': 'Bob', 'last_name': 'Bobberson', 'email_address': 'asdf', 'age': 1738, 'created_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'Middle', 'last_name': 'Pancakes', 'email_address': 'ffffffff', 'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 32, 54, 353509, tzinfo=<UTC>)}]>
+
+>>> users.objects.all().order_by('first_name').values().reverse()
+<QuerySet [{'id': 3, 'first_name': 'Middle', 'last_name': 'Pancakes', 'email_address': 'ffffffff', 'age': 98, 'created_at': datetime.datetime(2020, 11, 12, 18, 21, 18, 995943, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 32, 54, 353509, tzinfo=<UTC>)}, {'id': 1, 'first_name': 'Bob', 'last_name': 'Bobberson', 'email_address': 'asdf', 'age': 1738, 'created_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 11, 12, 18, 15, 13, 229190, tzinfo=<UTC>)}]>
+

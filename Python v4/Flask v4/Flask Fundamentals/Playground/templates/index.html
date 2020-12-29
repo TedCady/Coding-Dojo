@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body style='display: block; width: 970px; justify-content: center; margin: 50px; text-align: center;'>
+    <h1>Welcome!</h1>
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+        {% for i in range(0, repeat_int) %}
+            <p style='background-color: {{color_var}}; text-align: center; width: 150px; height: 150px; margin: 15px; border: solid black;'></p>
+        {% endfor %} 
+        <div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h3>Success! Welcome, {{ user }}!</h3>
+        <a href="/log_out">Log Out</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Users with Templates</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css\styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h3>All the Users</h3>
+        <table class="info">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            {% for i in user_info %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.first_name }} {{ i.last_name }}</td>
+                <td>{{ i.email_address }}</td>
+                <td>{{ i.age }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3>Add a User</h3>
+        <form method="POST" action="/process_user">
+            {% csrf_token %}
+            <table class="input">
+            <tr>
+                <td>First Name: <input type="text" name="firstName"></td>
+                <td>Last Name:  <input type="text" name="lastName"></td>
+            </tr>   
+            <tr>
+                <td>Email:      <input type="text" name="uEmail"></td>
+                <td>Age:        <input type="number" name="iAge"></td>
+            </tr>
+            </table>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</body>
+</html>

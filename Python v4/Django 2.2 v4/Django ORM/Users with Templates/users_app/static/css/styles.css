@@ -1,0 +1,23 @@
+.container{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    table.info{
+        font-size: 9px;
+        width: 500px;
+        border
+    }
+        table.info, table.info td{
+            border: 1px solid black;
+        }
+        button{
+            width: 50px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }

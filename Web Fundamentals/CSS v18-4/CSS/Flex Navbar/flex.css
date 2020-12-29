@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+    .center-box{
+        background-color: cornflowerblue;
+    }
+    #dd{
+        width: 800px;
+        height: 75px;
+        margin: 10px;
+        background-color: cornflowerblue;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: white;
+        font-family: Arial;
+        font-style: normal;
+        padding: 15px;
+    }
+    li{
+        display: inline-flex;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    #logo{
+        height: 75px;
+        width: 90px;
+    }
+    

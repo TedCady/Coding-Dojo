@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+}
+.forms{
+    display: flex;
+    flex-direction: row;
+}
+.forms{
+    align-items: center;
+}
+.add_dojo, .add_ninja{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
+    border: 0.25px solid black;
+    align-items: center;
+}
+button{
+    margin-top: 5px;
+    width: 50px;
+}
+.line{
+    width: 400px;
+    border: solid black 1px;
+    border-radius: 10px;
+}
+ul{
+    list-style: none;
+}
+td, li{
+    font-size: 9px;
+}
+.dojo_names{
+    font-weight: bold;
+}

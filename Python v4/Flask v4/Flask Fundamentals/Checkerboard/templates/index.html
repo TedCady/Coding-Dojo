@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css') }}">
+</head>
+<body>
+
+    {% for i in range(0, y) %}
+        <div>
+            {% for ii in range(0, x) %}
+                {% if i%2==0 and ii%2==0 or i%2!=0 and ii%2!=0 %}
+                    <p style="background-color: {{bg_color_1}};"></p>
+                {% else %}
+                    <p style="background-color: {{bg_color_2}};"></p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+</body>
+</html>

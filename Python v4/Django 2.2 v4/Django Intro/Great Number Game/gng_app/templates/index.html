@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Great Number Game!</h2>
+        <h3>I am thinking of a number between 1 and 100</h3>
+        <p>Take a guess!</p>
+    <p id="result" style="background: {{ request.session.result_color }};">{{ request.session.result }}</p>
+    <p>{{ request.session.input_guess }}</p>
+        <form action="/guess">
+            <input type="number" name="input_guess">
+            <button type="submit">{{ request.session.button }}</button>
+        </form>
+        
+    </div>
+</body>
+</html>

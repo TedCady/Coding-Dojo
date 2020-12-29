@@ -1,0 +1,15 @@
+.container{
+    width: 970px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.shows_tbl{
+    display: flex;
+    width: fit-content;
+    border: 1px solid black;
+    margin: 0px 0px 15px 0px;
+}
+.shows_tbl td{
+    border: 1px solid black;
+}

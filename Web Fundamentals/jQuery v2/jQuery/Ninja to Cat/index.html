@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Ninja to Cat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+
+        $(document).ready(function(){
+            
+            $('container').css({
+                'width':'500px',
+                'display':'flex',
+                'flex-direction':'column',
+                'text-align':'center',
+                'background-color':'blue'
+            })
+
+            $('img').css({
+                'width':'400px',
+                'height':'100px',
+                'display':'block'
+            })
+
+            $('img').click(function(){
+                $(this).attr('src',$(this).attr('alt-img'))
+            })
+
+        })
+
+    </script>
+
+<body>
+    
+    <div class="container">
+
+        <img src="n1.png" alt-img="c1.png">
+        <img src="n2.png" alt-img="c2.png">
+        <img src="n3.png" alt-img="c3.png">
+        <img src="n4.png" alt-img="c4.png">
+        <img src="n5.png" alt-img="c5.png">
+
+    </div>
+
+</body>
+</html>

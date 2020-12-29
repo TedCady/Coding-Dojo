@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="c1">
+            <h3>Add a Book</h3>
+            <form method="POST" action="/process_book">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" name="book_name"></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><input type="text" name="book_desc"></td>
+                    </tr>
+                    <tr><td><button type="submit">Add</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="c2">
+            <table>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+                {% for book in books %}
+                    <tr>
+                        <td>{{book.id}}</td> 
+                        <td>{{book.title}}</td>
+                        <td><form method="POST" action="/book_details">
+                            {% csrf_token %}
+                            <button type="submit" name="postBook" value="{{book.id}}">View</button>
+                        </form></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

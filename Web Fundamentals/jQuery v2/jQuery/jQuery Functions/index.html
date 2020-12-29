@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>jQuery Functions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('div').css({
+                'border-radius': '10px',
+                'padding': '10px',
+            })
+
+            $('.container').css({
+                'max-width':'970px', 
+                'background-color':'#c3cde6',
+                'display': 'flex',
+                'flex-wrap':'wrap',
+                'justify-content': 'space-evenly',
+                'text-align':'center'
+
+            })
+            $('.divvy').css({
+                'width': '870px',
+                'margin':"10px",
+                'background-color': '#d1d5de',
+                'display':'flex',
+                'justify-content': 'space-evenly',
+                'flex-wrap':'wrap'
+            })
+
+            $('button').css({
+                'height':'35px',
+                'width':'100px',
+                'display':'block',
+                'justify-content':'center',
+                'align-items':'center',
+                'border-radius':'10px'
+            })
+
+
+
+    // <button>
+            $('#hide').click(function(){$('h1').hide()});
+            $('#show').click(function(){$('h1').show()});
+            $('#toggle').click(function(){$('h1').toggle()});
+            $('#slideUp').click(function(){$('h1').slideUp()});
+            $('#slideDown').click(function(){$('h1').slideDown()});
+            $('#slideToggle').click(function(){$('h1').slideToggle()});
+            $('#fadeIn').click(function(){$('h1').fadeIn()});
+            $('#fadeOut').click(function(){$('h1').fadeOut()});
+            $('#addClass').click(function(){$('h1').addClass("class_added"); alert('h1 has a new class! (class_added)')});
+            $('#before').click(function(){$('h1').before('b  e  f  o  r  e')});
+            $('#after').click(function(){$('h1').after('a  f  t  e  r')});
+            $('#append').click(function(){$('h1').append(' a p p e n d')});
+            $('#html').click(function(){$('h1').html('HpuppeTextML')});
+            $('#attr').click(function(){$('h1').attr('id','attribute_added'); alert('h1 has a new id! (attribute_added)')});
+            $('#val').click(function(){
+                var t = $('h1').val('text');
+                alert(t);
+            })
+            $('#text').click(function(){$('h1').text('Puppet Text')});
+    // </button>
+
+        });  // end of $(document).ready
+
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="divvy">
+            <p><button id="hide">Hide</button></p>
+            <p><button id="show">Show</button></p>
+            <p><button id="toggle">Toggle</button></p>
+            <p><button id="slideUp">slideUp</button></p>
+            <p><button id="slideDown">slideDown</button></p>
+            <p><button id="slideToggle">slideToggle</button></p>
+            <p><button id="fadeOut">fadeOut</button></p>
+            <p><button id="fadeIn">fadeIn</button></p>
+            <p><button id="addClass">addClass</button></p>
+            <p><button id="before">Before</button></p>
+            <p><button id="after">After</button></p>
+            <p><button id="append">Append</button></p>
+            <p><button id="html">html</button></p>
+            <p><button id="text">text</button></p>
+            <p><button id="attr">attr</button></p>
+            <p><button id="val">val</button></p>
+        </div>
+
+        <h1 title="Puppet Text">Puppet Text</h1>
+
+
+    </div>
+
+</body>
+</html>

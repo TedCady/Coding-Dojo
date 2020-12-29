@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Dojo Pac-Man Demo - Ethan Mace</title>
+    <style type="text/css">
+        body{
+            background-color: black;
+        }
+        div.row{
+            height: 20px;
+
+        }
+        div.row div{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        
+        }
+            div.brick{
+                background-color: blue;
+            }
+            div.coin{
+                background: url('coin.gif');
+                background-size: 5px;
+                background-repeat: no-repeat;
+                background-position: center;
+
+            }
+            div#score{
+                margin-top: 5px;
+                width: 150px;
+                height: 75px;
+                color: white;
+                text-align: center;
+                display: inline-table;
+            }
+            div#score h3{
+                width: inherit;
+                margin: -1px;
+                height: 30px;
+                padding-top: 1px;
+                border: white solid 1px;
+                display: inline-flex;
+                justify-content: space-evenly;
+            }
+            div#score h1{
+                width: inherit;
+                margin: 0px;
+                height: 50px;
+                padding-top: 1px;
+                border: white solid 1px;
+                display: block;
+                padding-top: 10px;
+            }
+            div#coinz{
+                margin-top: 5px;
+                width: 150px;
+                height: 75px;
+                color: white;
+                text-align: center;
+                display: inline-table;
+            }
+
+            div#coinz h3{
+                width: inherit;
+                margin: -1px;
+                height: 30px;
+                padding-top: 1px;
+                border: white solid 1px;
+                display: inline-flex;
+                justify-content: space-evenly;
+            }
+            div#coinz h1{
+                width: inherit;
+                margin: 0px;
+                height: 50px;
+                padding-top: 1px;
+                border: white solid 1px;
+                display: block;
+                padding-top: 10px;
+            }
+            div#face-left{
+                background: url('catman.gif');
+                background-size: 15px;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(-90deg);
+            }
+            div#face-right{
+                background: url('catman.gif');
+                background-size: 15px;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(90deg);
+            }
+            div#face-up{
+                background: url('catman.gif');
+                background-size: 15px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            div#face-down{
+                background: url('catman.gif');
+                background-size: 15px;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(180deg);
+            }
+
+        </style>
+
+</head>
+<body>
+
+    <div id="world"></div>
+    <div class="pacman" id="face-left"></div>
+    <div class="pacman" id="face-right"></div>
+    <div class="pacman" id="face-up"></div>
+    <div class="pacman" id="face-down"></div>
+        <script>
+
+            var world = [
+                [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+                [2,1,2,1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,2],
+                [2,1,2,1,2,1,1,1,1,1,2,1,1,1,2,1,1,1,1,2,1,2,1,2,2,2,2,2,1,2],
+                [2,1,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,1,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2],
+                [2,2,2,1,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2],
+                [2,1,2,2,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
+                [2,2,2,1,2,1,2,1,2,2,1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,2,1,2,1,2,2,1,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,2,2,1,2,1,2,1,1,2,1,2,1,2,1,1,1,1,2,1,1,1,1,2,1,2,1,2],
+                [2,2,1,1,2,1,2,1,2,1,2,2,1,2,1,2,2,2,2,2,2,1,1,2,1,2,1,2,1,2],
+                [2,1,1,1,1,1,2,1,2,1,2,1,1,2,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2],
+                [2,2,2,2,2,2,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,2],
+                [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            ];
+
+
+            var x = 1
+            var y = 1
+            
+            var scr = 0
+            var cnCt = coinCount()
+            function displayWorld(){
+                var output = '';
+                world[1][1] = 3
+                for(var i=0; i<world.length; i++){
+                    output += "\n<div class='row'>";
+                    for(var j=0; j<world[i].length; j++){
+                        if(world[i][j] == 2)
+                            output += "<div class='brick'></div>";
+                        else if(world[i][j] == 1)
+                            output += "<div class='coin'></div>";
+                        else if(world[i][j] == 0)
+                            output += "<div class='empty'></div>";       
+                        else if(world[i][j] == 3)
+                            output += "<div class='pacman' id='face-up'></div>";  
+                    }
+                    // output += "<div id='score'><h3>"scr"</h3></div>";
+                    output += "\n</div>";
+                }
+                output += "\n<div id='score'>\n\t<h3>Score</h3>\n<h1>"+ scr +"</h1>\n</div>\n<div id='coinz'>\n\t<h3>Coins Remaining</h3>\n<h1>"+ cnCt +"</h1>\n</div>"
+                // console.log(output);
+                document.getElementById('world').innerHTML = output;
+            }
+
+            displayWorld();
+
+            document.onkeydown = function(e){
+                console.log(e.keyCode)
+                for(i = 0; i<world.length; i++){
+                    for(j = 0; j<world[i].length; j++){
+                        if(world[i][j] == 3){
+                            var y = i
+                            var x = j
+                            break;
+                        }
+                    }
+                }
+                if(e.keyCode == 37){
+                    updateWorld(y,x-1,y,x);
+                }
+                else if(e.keyCode == 39){
+                    updateWorld(y,x+1,y,x);
+                }
+                else if(e.keyCode == 38){
+                    updateWorld(y-1,x,y,x);
+                }
+                else if(e.keyCode == 40){
+                    updateWorld(y+1,x,y,x);
+                }
+            }
+
+            
+            function coinCount(){
+                var coinCount = -1
+                for(var i=0; i<world.length; i++){
+                    for(var j=0; j<world[i].length; j++){
+                        if(world[i][j] == 1){
+                            coinCount++
+                        }
+                    }                        
+                }
+                return(coinCount)
+            }
+            
+
+            
+            function updateWorld(y,x,dY,dX){
+                var output = '';
+                if(world[y][x] == 1){
+                    scr++
+                    cnCt--
+                }
+                if(world[y][x] != 2){
+                    world[dY][dX] = 0
+                    world[y][x] = 3
+                    for(var i=0; i<world.length; i++){
+                        output += "\n<div class='row'>";
+                        for(var j=0; j<world[i].length; j++){
+                            if(world[i][j] == 2)
+                                output += "<div class='brick'></div>";
+                            else if(world[i][j] == 1)
+                                output += "<div class='coin'></div>";
+                            else if(world[i][j] == 0)
+                                output += "<div class='empty'></div>";       
+                            if(world[i][j] == 3)
+                            if(x < dX)
+                                output += "<div class='pacman' id='face-left'></div>"
+                            else if(x > dX)
+                                output += "<div class='pacman' id='face-right'></div>"
+                            else if(y < dY)
+                                output += "<div class='pacman' id='face-up'></div>"
+                            else if(y > dY)
+                                output += "<div class='pacman' id='face-down'></div>"
+                            
+                        }
+                        output += "\n</div>";
+                    }
+                    output += "\n<div id='score'>\n\t<h3>Score</h3>\n<h1>"+ scr +"</h1>\n</div>\n<div id='coinz'>\n\t<h3>Coins Remaining</h3>\n<h1>"+ cnCt +"</h1>\n</div>"
+                    // console.log(output);
+                    if(cnCt == 0){
+                        reload()
+                    }   else{ 
+                        document.getElementById('world').innerHTML = output;
+                        }
+                    
+                    return(scr)
+                }
+            }
+
+            function reload(){
+                world = [
+                [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+                [2,1,2,1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,2],
+                [2,1,2,1,2,1,1,1,1,1,2,1,1,1,2,1,1,1,1,2,1,2,1,2,2,2,2,2,1,2],
+                [2,1,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,1,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2],
+                [2,2,2,1,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2],
+                [2,1,2,2,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
+                [2,2,2,1,2,1,2,1,2,2,1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,2,1,2],
+                [2,1,1,1,2,1,2,1,2,1,1,2,1,2,1,2,2,1,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,2,2,1,2,1,2,1,1,2,1,2,1,2,1,1,1,1,2,1,1,1,1,2,1,2,1,2],
+                [2,2,1,1,2,1,2,1,2,1,2,2,1,2,1,2,2,2,2,2,2,1,1,2,1,2,1,2,1,2],
+                [2,1,1,1,1,1,2,1,2,1,2,1,1,2,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2],
+                [2,2,2,2,2,2,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2],
+                [2,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,2],
+                [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+                ];
+
+                displayWorld();
+                scr = 0
+                cnCt = coinCount()
+            }
+        </script>
+    
+</body>
+</html>

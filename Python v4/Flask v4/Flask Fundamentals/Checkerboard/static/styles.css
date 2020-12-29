@@ -1,0 +1,12 @@
+
+div{
+    display: flex;
+    flex-direction: row;
+}
+    p{
+        display: flex;
+        width: 25px;
+        height: 25px;
+        margin: 0px;
+    }
+

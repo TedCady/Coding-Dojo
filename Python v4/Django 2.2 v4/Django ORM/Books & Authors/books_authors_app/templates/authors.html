@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="c1">
+            <h3>Add an Author</h3>
+            <form method="POST" action="/process_author">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="fName"></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lName"></td>
+                    </tr>
+                    <tr>
+                        <td>Notes</td>
+                        <td><input type="text" name="notes"></td>
+                    </tr>
+                    <tr><td><button type="submit">Add</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="c2">
+            <table>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+                {% for author in authors %}
+                    <tr>
+                        <td>{{author.id}}</td> 
+                        <td>{{author.first_name}} {{ author.last_name }}</td>
+                        <td><form method="POST" action="/author_details">
+                            {% csrf_token %}
+                            <button type="submit" name="postAuth" value="{{author.id}}">View</button>
+                        </form></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

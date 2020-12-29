@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h2>{{book.title}}</h2>
+                <h3>{{book.author.name}}</h3>
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+            {% for review in reviews.all %}
+        <div>
+                <p>{{review.user.name}}: {{review.review}}</p>
+                {% if active_user == review.user.email %}
+                <a class="delete_comment" href="/delete/{{book.id}}/{{review.id}}">Delete This Review</a>
+                {% endif %}
+        </div>
+            {% endfor %}
+    </div>
+</body>
+</html>
