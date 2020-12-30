@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\OOP\\Super Ninja\\app.js"
+            "program": "${workspaceFolder}\\OOP\\Its Time to Duel\\app.js"
         }
     ]
 }
