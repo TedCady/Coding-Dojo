@@ -10,7 +10,7 @@ class PersonCard extends Component{
     }
     render(){
         return(
-            <div>
+            <div class="person">
                 <h1>{this.person.lastName}, {this.person.firstName}</h1>
                 <p>Age: <span>{this.person.age}</span></p>
                 <p>Hair Color: {this.person.hairColor}</p>
