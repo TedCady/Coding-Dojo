@@ -36,13 +36,14 @@ const UserForm = (props) => {
                     <label>Confirm PW: </label>
                     <input type="text" onChange={(e)=>setConfirmPW(e.target.value)}/>                
                 </div>
-                <input type="submit" value="Submit"/>                                                
+                <input type="submit" value="Submit"/>    
+                <p>First Name: {firstName}</p>
+                <p>Last Name: {lastName}</p>
+                <p>Email: {email}</p>
+                <p>Password: {password}</p>
+                <p>Confirm PW: {confirmPW}</p>                                            
             </form>
-            <p>First Name: {firstName}</p>
-            <p>Last Name: {lastName}</p>
-            <p>Email: {email}</p>
-            <p>Password: {password}</p>
-            <p>Confirm PW: {confirmPW}</p>
+
         </div>
     )
 }
