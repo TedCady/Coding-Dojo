@@ -21,7 +21,7 @@ function reducer(state, action) {
         [action.type]: action.payload
     };
 }
- 
+
 export default () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     function fnVal(e){
