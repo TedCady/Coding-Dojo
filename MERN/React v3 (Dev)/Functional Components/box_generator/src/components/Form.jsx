@@ -16,9 +16,9 @@ const Form = () => {
     }
 
     return(
-        <div style={{alignContent: 'center'}}>
+        <div style={{width: '90%'}}>
             {/* {JSON.stringify(boxArr)} */}
-            <div style={{marginTop:'25px',width: '100%', display:'flex', justifyContent: 'center'}}>
+            <div style={{marginTop:'25px',width: '90%', display:'flex', justifyContent: 'center'}}>
                 <table>
                     <tr>
                         <td>
@@ -59,7 +59,7 @@ const Form = () => {
                     </tr>
                 </table>
             </div>
-            <div style={{width: '90%', height: '5000px',display: 'flex', flexDirection:'row', justifyContent: 'center'}}>
+            <div style={{width: '100%',display: 'flex', flexDirection:'flex', flexWrap: 'wrap', justifyContent: 'left'}}>
                 {
                     boxArr.map((box) => {
                         return <span style={{display: 'flex',backgroundColor: box.color, width: box.width + 'px', height: box.height + 'px', margin: '10px'}}></span>
