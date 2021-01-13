@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './styles/style.components.css'
 
 const Form = () => {
     const [color, setColor] = useState('');
