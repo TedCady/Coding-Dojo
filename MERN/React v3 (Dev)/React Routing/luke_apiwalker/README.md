@@ -1,4 +1,4 @@
-[Preview Video](https://www.youtube.com/watch?v=cHmerxT4Igw&feature=youtu.be)
+[Preview Video](https://www.youtube.com/watch?v=cHmerxT4Igw)
 
 Luke APIwalker
 You have been given a task as a front-end developer to create a front-end app to navigate the Star Wars API.
