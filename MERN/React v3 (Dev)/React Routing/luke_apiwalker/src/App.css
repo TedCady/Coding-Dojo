@@ -1,0 +1,55 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  padding: 25px;
+}
+.macro{
+  margin: 10px 5px 10px 5px;
+  width: 100%;
+  height: 50px;
+
+}
+.sMacro{
+  width: 100%;
+  height: 50px;
+  margin: 10px 5px 10px 5px;
+  background: blue;
+  color: white;
+  border: solid blue;
+  font-size: 100%;
+  font-weight: bold;
+}
+.form{
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.tableForm{
+  display: flex;
+  justify-content: center;
+}
+.infoTable{
+  display: table;
+  border-top: solid black;
+  border-bottom: solid black;
+  padding: 20px 0px 20px 0px;
+  width: 50%
+}
+.infoRow{
+  /* display: flex; */
+  width: 100%;
+  text-align: left;
+  /* margin: 40px; */
+}
+.key{
+  font-weight: bold;
+  padding-right: 10px;
+}
+.val{
+  padding-bottom: 2px;
+}
