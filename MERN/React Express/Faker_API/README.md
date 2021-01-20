@@ -8,7 +8,7 @@ Faker (Fake data generator)
 Go ahead and follow the checklist below using the 2 classes below:
 
 User class
-<br />_id
+<br /><br />_id
     firstName
     lastName
     phoneNumber
