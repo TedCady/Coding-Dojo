@@ -1,6 +1,6 @@
 
 | Instruction | Command | Result |
-|-|-|
+|-|-|-|
 | Create a database called 'my_first_db' | > use my_first_db | switched to db my_first_db |
 
 - [x] Create students collection.
