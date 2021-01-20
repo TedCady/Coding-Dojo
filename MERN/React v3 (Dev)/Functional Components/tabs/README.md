@@ -7,5 +7,4 @@ Develop a tabs component that will take in an array of items. Each item will hav
 - [x] Have the tab headers, when clicked on correctly show the appropriate content below.
 - [x] Ninja Bonus: Allow each tab to optionally have a callback which gets fired when the relevant tab header is clicked.
 - [x] Ninja Bonus: Add some CSS animations to the tab switching to smooth out the user experience.
-- [x] Sensei Bonus: Add a JavaScript animation to the tab switching action.
-ü
+- [x] Sensei Bonus: Add a JavaScript animation to the tab switching action.☑️
