@@ -1,8 +1,8 @@
 
 - [x] Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
 
-### Format
-|Instruction|
+### Output Format
+|Assignment Instruction|
 |-|
 |Terminal Command|
 |Result|
@@ -11,9 +11,12 @@
 |-|
 |> use my_first_db|
 |switched to db my_first_db|
+</br>
+|Create students collection|
+|-|
+|> db.createCollection('students')|
+|{ "ok" : 1 }|
 
-|Create a database called 'my_first_db'|> use my_first_db|switched to db my_first_db|
-|Create students collection|||
 |Create 5 students with the appropriate info.|||
 |Get all students.|||
 |Retrieve all students who are from:<br/> California (San Jose Dojo) or Washington (Seattle Dojo).|||
