@@ -7,7 +7,7 @@
 |Create students collection|||
 |Create 5 students with the appropriate info.|||
 |Get all students.|||
-|Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).|||
+|Retrieve all students who are from:<br/> California (San Jose Dojo) or Washington (Seattle Dojo).|||
 |Get all students whose lucky number is greater than 3|||
 |Get all students whose lucky number is less than or equal to 10|||
 |Get all students whose lucky number is between 1 and 9 (inclusive)|||
