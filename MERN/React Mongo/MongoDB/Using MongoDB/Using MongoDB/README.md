@@ -11,7 +11,7 @@
 |Get all students whose lucky number is greater than 3|||
 |Get all students whose lucky number is less than or equal to 10|||
 |Get all students whose lucky number is between 1 and 9 (inclusive)|||
-|Add a field to each student collection called 'interests' that is an ARRAY. It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.|||
+|Add a field to each student collection called 'interests' that is an ARRAY. <br/>It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.|||
 |Add some unique interests for each particular student into each of their interest arrays.|||
 |Add the interest 'taxes' into someone's interest array.|||
 |Remove the 'taxes' interest you just added.|||
