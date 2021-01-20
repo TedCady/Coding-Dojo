@@ -1,6 +1,7 @@
 - [x] Create a database called 'my_first_db'.
 <br/>
 ```use my_first_db```
+<br/>
 switched to db my_first_db
 <br/>
 - [x] Create students collection.
