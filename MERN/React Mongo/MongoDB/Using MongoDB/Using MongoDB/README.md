@@ -1,6 +1,6 @@
 
-|Create a database called 'my_first_db'|
-|-----|
+|Create a database called 'my_first_db'|||
+|-||-|
 |command||> use my_first_db|
 |result||switched to db my_first_db|
 
