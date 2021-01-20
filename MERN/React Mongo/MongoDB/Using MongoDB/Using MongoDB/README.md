@@ -11,7 +11,7 @@
 |-|
 |> use my_first_db|
 |switched to db my_first_db|
-</br>
+
 |Create students collection|
 |-|
 |> db.createCollection('students')|
