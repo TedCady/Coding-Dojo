@@ -2,9 +2,9 @@
 - [x] Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
 
 ### Output Format
-#### Assignment Instruction
-|Terminal Command|
-|Result|
+|Assignment Instruction||
+|-|-|
+|Terminal Command|Result|
 
 ### Output
 |Create a database called 'my_first_db'|
