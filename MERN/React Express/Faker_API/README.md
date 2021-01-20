@@ -1,3 +1,5 @@
+[Preview Video](https://youtu.be/TGLmPHKXV_M)
+
 To solidify the concepts of making our own api, we are going to create an api that generates a random user on a GET request. We will be using Postman to make our GET requests.
 
 In this assignment, we will be using 2 javascript libraries to create a simple API that generates a User and/or Company depending on the route:
