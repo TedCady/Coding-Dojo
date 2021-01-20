@@ -1,4 +1,5 @@
- - [x] |Create a database called 'my_first_db'.|
+
+|<b>Create a database called 'my_first_db'.</b>|
 |-----|
 |> use my_first_db|
 |switched to db my_first_db|
