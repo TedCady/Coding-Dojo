@@ -11,10 +11,9 @@
 >\> use my_first_db
 >> switched to db my_first_db
 
-|Create students collection|
-|-|
-|> db.createCollection('students')|
-|{ "ok" : 1 }|
+#### Create students collection
+>\> db.createCollection('students')
+>>{ "ok" : 1 }
 
 |Create 5 students with the appropriate info.|
 |-|
