@@ -2,8 +2,8 @@
 | Instruction | Command | Result |
 |-|-|-|
 | Create a database called 'my_first_db' | > use my_first_db | switched to db my_first_db |
-
-- [x] Create students collection.
+|Create students collection|||
+- [x] .
 - [x] Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
 - [x] Create 5 students with the appropriate info.
 - [x] Get all students.
