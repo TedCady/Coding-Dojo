@@ -8,12 +8,12 @@ Faker (Fake data generator)
 Go ahead and follow the checklist below using the 2 classes below:
 
 User class
-<br /><br />_id
-    firstName
-    lastName
-    phoneNumber
-    email
-    password
+<br />- _id
+<br />- firstName
+<br />- lastName
+<br />- phoneNumber
+<br />- email
+<br />- password
 
 Company class
     _id
