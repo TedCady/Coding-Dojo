@@ -7,7 +7,7 @@
 |Result|
 
 ### Output
-#### Create a database called 'my_first_db'
+|Create a database called 'my_first_db'|
 |-|
 |> use my_first_db|
 |switched to db my_first_db|
