@@ -8,7 +8,7 @@ Faker (Fake data generator)
 Go ahead and follow the checklist below using the 2 classes below:
 
 User class
-<br />  - _id
+<br />- _id
 <br />- firstName
 <br />- lastName
 <br />- phoneNumber
@@ -16,14 +16,14 @@ User class
 <br />- password
 
 Company class
-    _id
-    name
-    address
-    street
-    city
-    state
-    zipCode
-    country
+<br />- _id
+<br />- name
+<br />- address
+<br />- street
+<br />- city
+<br />- state
+<br />- zipCode
+<br />- country
 
 Faker
 The faker library has a ton of methods we can use to populate specific fields with randomly generated data. Look through the faker documentation and search through the methods to choose the ones that you would use to populate each field.
