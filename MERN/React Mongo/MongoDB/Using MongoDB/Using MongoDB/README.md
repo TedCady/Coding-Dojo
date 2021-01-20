@@ -1,8 +1,17 @@
 
 - [x] Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
 
-|Instruction|Command|Result|
-|-|-|-|
+### Format
+|Instruction|
+|-|
+|Terminal Command|
+|Result|
+### Output
+|Create a database called 'my_first_db'|
+|-|
+|> use my_first_db|
+|switched to db my_first_db|
+
 |Create a database called 'my_first_db'|> use my_first_db|switched to db my_first_db|
 |Create students collection|||
 |Create 5 students with the appropriate info.|||
