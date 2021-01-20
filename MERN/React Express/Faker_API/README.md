@@ -1,4 +1,4 @@
-[![Preview Video](https://img.youtube.com/vi/TGLmPHKXV_M.jpg)](https://youtu.be/TGLmPHKXV_M)
+[![Preview Video](/static/preview.jpg)](https://youtu.be/TGLmPHKXV_M)
 
 To solidify the concepts of making our own api, we are going to create an api that generates a random user on a GET request. We will be using Postman to make our GET requests.
 
