@@ -1,3 +1,5 @@
+[![preview](static/preview.jpg)](https://www.youtube.com/watch?v=0PHTbH_l8kw)
+
 Tabs
 Develop a tabs component that will take in an array of items. Each item will have a label and a content property. When you click on each individual tab header, it should change the state of the tabs so that the correct content is displayed.
 
@@ -6,3 +8,4 @@ Develop a tabs component that will take in an array of items. Each item will hav
 - [x] Ninja Bonus: Allow each tab to optionally have a callback which gets fired when the relevant tab header is clicked.
 - [x] Ninja Bonus: Add some CSS animations to the tab switching to smooth out the user experience.
 - [x] Sensei Bonus: Add a JavaScript animation to the tab switching action.
+ü
