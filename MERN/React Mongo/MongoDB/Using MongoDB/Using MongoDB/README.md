@@ -2,13 +2,12 @@
 - [x] Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
 
 ### Output Format
-#### |Assignment Instruction|
-|-|
+#### Assignment Instruction
 |Terminal Command|
 |Result|
+
 ### Output
-|Create a database called 'my_first_db'|
-|-|
+#### Create a database called 'my_first_db'
 |> use my_first_db|
 |switched to db my_first_db|
 
@@ -17,7 +16,11 @@
 |> db.createCollection('students')|
 |{ "ok" : 1 }|
 
-|Create 5 students with the appropriate info.|||
+|Create 5 students with the appropriate info.|
+|-|
+||
+||
+
 |Get all students.|||
 |Retrieve all students who are from:<br/> California (San Jose Dojo) or Washington (Seattle Dojo).|||
 |Get all students whose lucky number is greater than 3|||
