@@ -35,7 +35,8 @@
 #### :white_check_mark:Retrieve all students who are from:California (San Jose Dojo) or Washington (Seattle Dojo)
 >\> db.students.find({home_state:'Washington (Seattle Dojo)'})
 >> {"_id":ObjectId("6008c7968ac9128a2f30c99d"),"name":"Bravo","home_state":"Washington (Seattle Dojo)","lucky_number":2,"birthday":{"month":2,"day":2,"year":2002}}<br/>
->> {"_id":ObjectId("6008c7a38ac9128a2f30c99f"),"name":"Delta","home_state":"Washington (Seattle Dojo)","lucky_number":4,"birthday":{"month":4,"day":4,"year":2004}}<br/><br/>
+>> {"_id":ObjectId("6008c7a38ac9128a2f30c99f"),"name":"Delta","home_state":"Washington (Seattle Dojo)","lucky_number":4,"birthday":{"month":4,"day":4,"year":2004}}<br/>
+####
 >\> db.students.find({home_state:'California (San Jose Dojo)'})
 >> {"_id":ObjectId("6008c78e8ac9128a2f30c99c"),"name":"Alpha","home_state":"California (San Jose Dojo)","lucky_number":1,"birthday":{"month":1,"day":1,"year":2001}}<br/>
 >> {"_id":ObjectId("6008c79d8ac9128a2f30c99e"),"name":"Charlie","home_state":"California (San Jose Dojo)","lucky_number":3,"birthday":{"month":3,"day":3,"year":2003}}<br/>
