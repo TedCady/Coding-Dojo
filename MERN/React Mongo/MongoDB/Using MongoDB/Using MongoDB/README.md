@@ -69,33 +69,46 @@
 #### :white_check_mark: Add some unique interests for each particular student into each of their interest arrays
 >\> db.students.update({name: 'Alpha'},{$addToSet: {interests: 'Writing nicely structured .md files'}})
 >> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+####
+>\> db.students.update({name: 'Bravo'},{$addToSet: {interests: 'Obsessing over minor details'}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+####
+>\> db.students.update({name: 'Charlie'},{$addToSet: {interests: 'Exceeding expectations'}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+####
+>\> db.students.update({name: 'Delta'},{$addToSet: {interests: 'Stirring jelly with a spork'}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+####
+>\> db.students.update({name: 'Echo'},{$addToSet: {interests: 'Watching Rick and Morty'}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 #### :white_check_mark: Add the interest 'taxes' into someone's interest array
->\>
->>
+>\> db.students.update({name: 'Delta'},{$addToSet: {interests: 'taxes'}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 #### :white_check_mark: Remove the 'taxes' interest you just added
->\>
->>
+>\> db.students.update({name:'Delta'},{$pop: {interests:1}})
+>> WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 #### :white_check_mark: Remove all students who are from California
->\>
->>
+>\> db.students.remove({home_state: 'California (San Jose Dojo)'})
+>> WriteResult({ "nRemoved" : 3 })
 #### :white_check_mark: Remove a student by name
->\>
->>
-#### :white_check_mark: Remove a student whose lucky number is greater than 5 (JUST ONE)
->\>
->>
+>\> db.students.remove({name:'Bravo'})
+>> WriteResult({ "nRemoved" : 1 })
+#### :white_check_mark: Remove a student whose lucky number is greater than 5 (JUST ONE) 
+##### Note from ninja: Only one student remains.  Lucky number is 4.  Changing $gt:5 to $gt:3, then recreating students for following instructions.
+>\> db.students.remove({lucky_number: {$gt:3}})
+>> WriteResult({ "nRemoved" : 1 })
 #### :white_check_mark: Add a field to each student collection called 'number_of_belts' and set it to 0
->\>
->>
+>\> db.students.updateMany({},{$set: {number_of_belts: 0}})
+>> { "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
 #### :white_check_mark: Increment this field by 1 for all students in Washington (Seattle Dojo)
->\>
->>
+>\> db.students.updateMany({home_state: 'Washington (Seattle Dojo)'},{$inc: {number_of_belts: 1 }})
+>> { "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
 #### :white_check_mark: Rename the 'number_of_belts' field to 'belts_earned'
->\>
->>
+>\> db.students.updateMany({}, {$rename: {number_of_belts:'belts_earned'}})
+>> { "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
 #### :white_check_mark: Remove the 'lucky_number' field
->\>
->>
+>\> db.students.updateMany({}, {$unset:{lucky_number:[]}})
+>> { "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
 #### :white_check_mark: Add a 'updated_on' field,and set the value as the current date
->\>
->>
+>\> db.students.updateMany({},{$currentDate: {updated_on: true}})
+>> { "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
