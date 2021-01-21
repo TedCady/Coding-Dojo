@@ -27,7 +27,7 @@
 >> WriteResult({ "nInserted" : 1 })
 #### :white_check_mark: Get all students
 >\> db.students.find({})
->> { "_id" : ObjectId("6008c5308ac9128a2f30c997"), "name" : "Alpha", "home_state" : "Bravo", "lucky_number" : 1, "birthday" : { "month" : 1, "day" : 1, "year" : 2001 } }
+>> { "_id" : ObjectId("6008c5308ac9128a2f30c997"), "name" : "Alpha", "home_state" : "Bravo", "lucky_number" : 1, "birthday" : { "month" : 1, "day" : 1, "year" : 2001 } }<br/>
 >> { "_id" : ObjectId("6008c5f28ac9128a2f30c998"), "name" : "Bravo", "home_state" : "Charlie", "lucky_number" : 2, "birthday" : { "month" : 2, "day" : 2, "year" : 2002 } }
 >> { "_id" : ObjectId("6008c6698ac9128a2f30c999"), "name" : "Delta", "home_state" : "Echo", "lucky_number" : 3, "birthday" : { "month" : 3, "day" : 3, "year" : 2003 } }
 >> { "_id" : ObjectId("6008c6728ac9128a2f30c99a"), "name" : "Foxtrot", "home_state" : "Golf", "lucky_number" : 4, "birthday" : { "month" : 4, "day" : 4, "year" : 2004 } }
