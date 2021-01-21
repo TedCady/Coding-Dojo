@@ -20,7 +20,7 @@
 #### :white_check_mark: Get all students
 >\>
 >>
-#### :white_check_mark: Retrieve all students who are from:<br/> California (San Jose Dojo) or Washington (Seattle Dojo)
+#### :white_check_mark: Retrieve all students who are from: California (San Jose Dojo) or Washington (Seattle Dojo)
 >\>
 >>
 #### :white_check_mark: Get all students whose lucky number is greater than 3
@@ -32,10 +32,10 @@
 #### :white_check_mark: Get all students whose lucky number is between 1 and 9 (inclusive)
 >\>
 >>
-#### :white_check_mark: Add a field to each student collection called 'interests' that is an ARRAY. <br/>It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation
+#### :white_check_mark: Add a field to each student collection called 'interests' that is an ARRAY. It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation
 >\>
 >>
-#### :white_check_mark: Add some unique interests for each particular student <br/>into each of their interest arrays
+#### :white_check_mark: Add some unique interests for each particular student into each of their interest arrays
 >\>
 >>
 #### :white_check_mark: Add the interest 'taxes' into someone's interest array
