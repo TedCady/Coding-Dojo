@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/products", {
+
+mongoose.connect('mongodb://localhost/gen_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-    .then(() => console.log("Established a connection to the database"))
-    .catch(err => console.log("Something went wrong when connecting to the database", err));
+    .then(() => console.log('Database connection established'))
+    .catch(err => console.log('Error within mongoose.config.js', err));

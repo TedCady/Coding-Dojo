@@ -1,41 +1,39 @@
-const { Product } = require('../models/product.model');
-module.exports.index = (req, res) => {
-    res.json({
-        message: "Hello World"
-    });
-}
+const {Product} = require('../models/product.model');
 
-let errLoc = 1
-module.exports.findAllProducts = (req, res) => {
+module.exports.findAll = (req, res) => {
     Product.find()
-        .then(results => res.json({products: results}))
-        .catch(err => res.json({message: `Error in .controllers location: ${errLoc}`, error: err}))
-}
+        .then(output => res.json({ 
+            product_count: output.length,
+            products: output 
+        }))
+        .catch(err => res.json({ message: err}));
+};
 
-module.exports.findOneProduct = (req, res) => {
-    errLoc = 2;
-    Product.findOne({_id: req.params.id})
-        .then(results => res.json({product: results}))
-        .catch(err => res.json({message: `Error in .controllers location: ${errLoc}`, error: err}))
-}
+module.exports.findOne = (req, res) => {
+    Product.findOne({ _id: req.params.id })
+        .then(output => res.json({ product: output }))
+        .catch(err => res.json({ message: err}));
+};
 
-module.exports.createProduct = (req, res) => {
-    errLoc = 3;
-    Product.create(req.body)
-        .then(results => res.json({product: results}))
-        .catch(err => res.json({message: `Error in .controllers location: ${errLoc}`, error: err}))
-}
+module.exports.createNew = (req, res) => {
+    const { title, price, description } = req.body;
+    Product.create({
+        title: title,
+        price: price,
+        description: description
+    })
+        .then(product => res.json(product))
+        .catch(err => res.json(`Error: ${err}`));
+};
 
-module.exports.updateProduct = (req, res) => {
-    errLoc = 4;
-    Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-        .then(results => res.json({product: results}))
-        .catch(err => res.json({message: `Error in .controllers location: ${errLoc}`, error: err}))
-}
+module.exports.updateOne = (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        .then(output => res.json({ product: output }))
+        .catch(err => res.json({ message: err}));
+};
 
-module.exports.deleteProduct = (req, res) => {
-    errLoc = 5;
-    Product.deleteOne({_id: req.params.id})
-        .then(results => res.json({product: results}))
-        .catch(err => res.json({message: `Error in .controllers location: ${errLoc}`, error: err}))
-}
+module.exports.deleteItem = (req, res) => {
+    Product.deleteOne({ _id: req.params.id })
+        .then(result => res.json(result))
+        .catch(err => res.json(err));
+};
