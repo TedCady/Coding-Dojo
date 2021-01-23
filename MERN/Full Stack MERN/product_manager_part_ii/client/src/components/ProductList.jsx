@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default props => {
-    const { clickyBoi, setItemID } = props;
+    const { clickyBoi, setItemID, deleteHandler } = props;
     const [productList, setProductList] = useState([]);
     const [output, setOutput] = useState(<p>Loading...</p>)
 
@@ -20,7 +20,8 @@ export default props => {
                 {productList.map((item) => {
                     return(
                         <li>
-                            <a href={`/products/${item._id}`}>{item.title}</a>
+                            <a href={`/products/${item._id}`} style={{marginRight:'20px'}}>{item.title}</a>
+                            <a href='/' ><input onClick={() => deleteHandler(item._id)} type='submit' value='Delete' /></a>
                         </li>
                     )
                 })}

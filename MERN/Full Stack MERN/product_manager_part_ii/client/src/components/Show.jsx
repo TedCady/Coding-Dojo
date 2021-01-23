@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default props => {
-    const { id } = props;
+    const { id, deleteHandler } = props;
     const [item, setItem] = useState([])
     const [output, setOutput] = useState([])
 
@@ -37,8 +37,10 @@ export default props => {
 
     return(
         <div>
-            <a href='/'>Home</a>
+            <a href='/' style={{marginRight:'20px'}}>Home</a>
+            <a href={`/products/edit/${item._id}`}>Edit</a>
             {output}
+            <a href='/' ><input onClick={() => deleteHandler(item._id)} type='submit' value='Delete' /></a>
         </div>
     )
 }

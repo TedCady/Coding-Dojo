@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default props => {
-    const { id } = props;
+    const { id, deleteHandler } = props;
     const [item, setItem] = useState([])
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState(0)
@@ -10,7 +10,8 @@ export default props => {
     const [output, setOutput] = useState(<p>Loading...</p>)
     const [editConf, setEditConf] = useState('')
 
-    const editHandler = () => {
+    const editHandler = props => {
+        const { deleteHandler } = props;
         axios.put(`http://localhost:8000/api/products/update/${id}`,{
             title: item.title,
             price: item.price,
@@ -64,9 +65,11 @@ export default props => {
 
         return(
         <div>
-            <a href='/'>Home</a>
+            <a href='/' style={{marginRight:'20px'}}>Home</a>
+            <a href={`/products/${item._id}`}>Back</a>            
             {editConf}
             {output}
+            <a href='/' ><input onClick={() => deleteHandler(item._id)} type='submit' value='Delete' /></a>
         </div>
     )
 }
