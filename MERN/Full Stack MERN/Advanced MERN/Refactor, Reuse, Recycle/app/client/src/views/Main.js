@@ -29,19 +29,28 @@ export default () => {
         .catch(err => console.log(err))
     }
 
+    const deleteAllHandler = () => {
+        products.map((item) => {
+            axios.delete(`http://localhost:8000/api/products/delete/${item._id}`)
+        })
+    }
+
     return (
-        <Router >
-            <ProductForm 
-                path='/' 
-                clickHandler={createHandler}
-                iTitle=''
-                iPrice=''
-                iDesc=''
-            >
-            {loaded && <ProductList path='/' products={products} deleteHandler={deleteHandler}/>}
-            </ProductForm>
-            <Show path='/products/:id' deleteHandler={deleteHandler}/>
-            <Edit path='/products/edit/:id' deleteHandler={deleteHandler}/>
-        </Router>
+        <div>
+            <a href='/'><button type='submit' onClick={() => deleteAllHandler()}>Delete All</button></a>
+            <Router >
+                <ProductForm 
+                    path='/' 
+                    clickHandler={createHandler}
+                    iTitle=''
+                    iPrice={1}
+                    iDesc=''
+                >
+                {loaded && <ProductList path='/' products={products} deleteHandler={deleteHandler}/>}
+                </ProductForm>
+                <Show path='/products/:id' deleteHandler={deleteHandler}/>
+                <Edit path='/products/edit/:id' deleteHandler={deleteHandler}/>
+            </Router>
+        </div>
     )
 }

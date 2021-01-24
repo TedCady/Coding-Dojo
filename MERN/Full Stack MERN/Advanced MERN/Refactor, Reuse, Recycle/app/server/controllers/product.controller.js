@@ -7,7 +7,7 @@ module.exports.findAll = (req, res) => {
 };
 
 module.exports.findOne = (req, res) => {
-    Product.findOne({ _id: req.params.id })
+    Product.findById(req.params.id)
         .then(output => res.json(output))
         .catch(err => res.json({ message: err}));
 };
@@ -30,7 +30,7 @@ module.exports.updateOne = (req, res) => {
 };
 
 module.exports.deleteItem = (req, res) => {
-    Product.deleteOne({ _id: req.params.id })
+    Product.findByIdAndDelete(req.params.id)
         .then(result => res.json(result))
         .catch(err => res.json(err));
 };
