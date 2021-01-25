@@ -1,4 +1,5 @@
 # Authors
+[![img](static/preview.jpg)](https://youtu.be/6hmjlv1eAT4)
 ## Objectives: 
 :white_check_mark: Create a full CRUD app with React, Express, Node, and MongoDB
 :white_check_mark: Include backend validations
